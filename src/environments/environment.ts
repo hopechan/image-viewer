@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://api.nasa.gov/planetary/",
+  apiUrl: "https://api.nasa.gov/planetary",
   apiKey: "zn1Zx7MnNtS8rEbagpyidibXn1cu7G3XU5aVotmR"
 };
 
