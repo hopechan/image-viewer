@@ -20,8 +20,8 @@ export class EarthService {
 
   constructor(private http: HttpClient){}
 
-  getData(data: any): Observable<Earth> {
-    this.requestUrl = `${environment.apiUrl}/earth/assets?lon=${data.lon}&lat=${data.lat}&date=${data.date}&&dim=${data.dim}&api_key=${environment.apiKey}`;
+  getData(data: any): Observable<Earth> { 
+    this.requestUrl = `${environment.apiUrl}/earth/assets?lon=${data.lon}&lat=${data.lat}&date=${"2014-02-01"}&dim=${"0.10"}&api_key=${environment.apiKey}`;
     const image = this.http.get<Earth>(this.requestUrl);
     return image;
   }
