@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Earth, EarthService } from '../services/earth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewer',
@@ -8,15 +9,24 @@ import { Earth, EarthService } from '../services/earth.service';
 })
 export class ViewerComponent implements OnInit {
   earth!: Earth;
+  routeState: any;
+  data: any = {};
 
-  constructor(private earthService: EarthService) { }
+  constructor(private earthService: EarthService,  private router: Router) {
+    if (this.router.getCurrentNavigation()?.extras.state) {
+      this.routeState = this.router.getCurrentNavigation()?.extras.state;
+      if (this.routeState) {
+        this.data = this.routeState.data ? this.routeState.data : '';
+      }
+    }
+   }
 
   ngOnInit() {
     this.getData();
   }
 
   getData(){
-    this.earthService.getData({lon:"-95.33", lat: "29.78", date: "2018-01-01", dim: "0.10"}).subscribe((data: Earth) => {
+    this.earthService.getData(this.data).subscribe((data: Earth) => {
       this.earth = data;
     });
   }
