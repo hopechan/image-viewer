@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-12">
+    <form (ngSubmit)="onSubmit()" [formGroup]="earthForm">
+      <div class="form-group">
+        <label for="lon">Longitud</label>
+        <input type="number" formControlName="lon" class="form-control" id="lon" placeholder="Ingrese Longitud">
+        <small id="lonHelp" class="form-text text-muted">100.75</small>
+      </div>
+      <div class="form-group">
+        <label for="lat">Latitud</label>
+        <input type="number" formControlName="lat" class="form-control" id="lat" placeholder="Ingrese Latitud">
+        <small id="latHelp" class="form-text text-muted">1.5</small>
+      </div>
+      <div class="form-group">
+        <label for="date">Fecha</label>
+        <input type="date" formControlName="date" class="form-control" id="date">
+        <small id="dateHelp" class="form-text text-muted">Es el inicio del intervalo de fechas de 30 días que se utilizará para buscar la imagen más cercana a esa fecha</small>
+      </div>
+      <div class="form-group">
+        <label for="dim">Dimension</label>
+        <input type="number" formControlName="dim" class="form-control" id="dim" placeholder="Ingrese dimension">
+        <small id="dimHelp" class="form-text text-muted">Anchura y altura de la imagen en grados ej: 0.10</small>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary" [disabled]="earthForm.invalid">Enviar</button>
+        <button class="btn btn-seconday" type="reset" (click)="onReset()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
