@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ViewerComponent } from './viewer/viewer.component';
 import { EarthService } from './services/earth.service';
 import { EarthFormComponent } from './earth-form/earth-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EarthFormComponent } from './earth-form/earth-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     EarthService
